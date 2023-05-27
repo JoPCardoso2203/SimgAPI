@@ -62,7 +62,7 @@ namespace SimgAPI.Infraestrutura.Mqtt
                 var obj = JsonConvert.DeserializeObject<JsonLeituraDto>(valores);
                 var login = _servicoDispositivo.ObterLoginUsuarioPorDispositivoId(1)?.LoginUsuario;
 
-                if (obj?.Chama?.Equals("OK") ?? false)
+                if (obj?.Chama?.Equals("C") ?? false)
                     _servicoAlerta.FazerLigacao(valores);
 
                 _servicoLeitura.CadastrarLeituraPorJson(valores);
