@@ -40,7 +40,7 @@ namespace SimgAPI.Configuracao
 
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)code;
-            return context.Response.WriteAsync("Erro na aplicação");
+            return context.Response.WriteAsync(exception.Message);
         }
     }
 }
