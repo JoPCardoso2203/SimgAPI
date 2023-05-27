@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'SimiApi'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E54D280FB8A64AC9B248409C1462FE27 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_02183C069DD14739B8A010266A156815 }}
           package: .
