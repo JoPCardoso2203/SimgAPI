@@ -42,7 +42,7 @@ namespace SimgAPI.Dominio.Servicos
 
         public object? ListarLeiturasPorDispositivo(decimal idDispositivo, DateTime? dataDe = null, DateTime? dataAte = null)
         {
-            var lista = _repositorioLeitura.ListarLeiturasPorDispositivo(idDispositivo, dataDe, dataAte).Select(p => new { p.IdDispositivo, p.ValorGas, p.DataLeitura}).ToList();
+            var lista = _repositorioLeitura.ListarLeiturasPorDispositivo(idDispositivo, dataDe, dataAte).Select(p => new { p.IdDispositivo, p.ValorChama, p.ValorGas, p.DataLeitura}).ToList();
             if(lista == null || lista.Count < 1) return null;
             return lista;
         }
