@@ -22,7 +22,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 USUA_NOME NomeUsuario,
                                 USUA_LOGIN LoginUsuario,
                                 USUA_SENHA SenhaUsuario,
-                                USUA_EMAIL EmailUsuario,
+                                USUA_TELEFONE TelefoneUsuario,
                                 USUA_DTHR_CRIACAO DataCriacaoUsuario
                               FROM SIMG.USUARIO";
 
@@ -37,7 +37,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 USUA_NOME NomeUsuario,
                                 USUA_LOGIN LoginUsuario,
                                 USUA_SENHA SenhaUsuario,
-                                USUA_EMAIL EmailUsuario,
+                                USUA_TELEFONE TelefoneUsuario,
                                 USUA_DTHR_CRIACAO DataCriacaoUsuario
                               FROM SIMG.USUARIO WHERE USUA_ID = :pIdUsuario";
 
@@ -52,7 +52,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 USUA_NOME NomeUsuario,
                                 USUA_LOGIN LoginUsuario,
                                 USUA_SENHA SenhaUsuario,
-                                USUA_EMAIL EmailUsuario,
+                                USUA_TELEFONE TelefoneUsuario,
                                 USUA_DTHR_CRIACAO DataCriacaoUsuario
                               FROM SIMG.USUARIO WHERE USUA_LOGIN = :pLoginUsuario";
 
@@ -67,7 +67,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 USUA_NOME NomeUsuario,
                                 USUA_LOGIN LoginUsuario,
                                 USUA_SENHA SenhaUsuario,
-                                USUA_EMAIL EmailUsuario,
+                                USUA_TELEFONE TelefoneUsuario,
                                 USUA_DTHR_CRIACAO DataCriacaoUsuario
                               FROM SIMG.USUARIO WHERE USUA_LOGIN = :pLoginUsuario AND USUA_SENHA = :pSenhaUsuario";
 

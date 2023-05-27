@@ -9,5 +9,6 @@ namespace SimgAPI.Dominio.Interfaces.Servicos
     public interface IServicoAlerta
     {
         void CadastrarAlertaPorJson(string json);
+        void FazerLigacao(string jsonLeitura);
     }
 }

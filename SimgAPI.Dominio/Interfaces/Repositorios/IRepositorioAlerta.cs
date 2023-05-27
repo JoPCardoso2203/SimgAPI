@@ -12,5 +12,6 @@ namespace SimgAPI.Dominio.Interfaces.Repositorios
         List<Alerta> ListarAlertas();
         Alerta? ObterAlertaPorId(decimal id);
         bool AdicionarAlerta(Alerta alerta);
+        List<Alerta> ListarAlertasPorDispositivo(string idDispositivo);
     }
 }

@@ -27,8 +27,8 @@ namespace SimgAPI.Dominio.Entidades
         [Column("USUA_SENHA")]
         public string? SenhaUsuario { get; set; }
 
-        [Column("USUA_EMAIL")]
-        public string? EmailUsuario { get; set; }
+        [Column("USUA_TELEFONE")]
+        public string? TelefoneUsuario { get; set; }
 
         [Column("ALER_DTHR_CRIACAO")]
         public DateTime? DataCriacaoUsuario { get; set; }

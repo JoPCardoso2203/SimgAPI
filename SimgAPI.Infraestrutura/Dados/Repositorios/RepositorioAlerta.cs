@@ -22,6 +22,18 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
             return lista;
         }
 
+        public List<Alerta> ListarAlertasPorDispositivo(string idDispositivo)
+        {
+            var consulta = $@"SELECT 
+                                ALER_ID IdAlerta,
+                                ALER_DISP_ID IdDispositivo,
+                                ALER_DTHR_CRIACAO DataAlerta
+                              FROM SIMG.ALERTA WHERE ALER_DISP_ID = :pIdDispositivo";
+
+            var lista = ObterLista<Alerta>(consulta, new { pIdDispositivo = idDispositivo });
+            return lista;
+        }
+
         public Alerta? ObterAlertaPorId(decimal id)
         {
             var consulta = $@"SELECT 

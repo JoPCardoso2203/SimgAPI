@@ -19,14 +19,14 @@ namespace SimgAPI.Dominio.Servicos
             _RepositorioUsuario = repositorioUsuario;
         }
 
-        public string? ObterLoginUsuarioPorDispositivoId(decimal idDispositivo)
+        public Usuario? ObterLoginUsuarioPorDispositivoId(decimal idDispositivo)
         {
             var dispositivo = _repositorioDispositivo.ObterDispositivoPorId(idDispositivo);
             
             if(dispositivo != null)
             {
                 var usuario = _RepositorioUsuario.ObterUsuarioPorId(dispositivo.IdUsuario ?? 0);
-                return usuario?.LoginUsuario;
+                return usuario;
             }
 
             return null;

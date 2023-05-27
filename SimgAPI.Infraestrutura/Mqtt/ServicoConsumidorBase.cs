@@ -18,7 +18,7 @@ using System.Text.RegularExpressions;
 
 namespace SimgAPI.Infraestrutura.Mqtt
 {
-    public class ServicoConsumidorBase :  BackgroundService
+    public class ServicoConsumidorBase : BackgroundService
     {
         private readonly ILogger<ServicoConsumidorBase> _logger;
         private readonly MqttClientOptionsBuilder builder;
@@ -59,20 +59,13 @@ namespace SimgAPI.Infraestrutura.Mqtt
                 var payloadText = Encoding.UTF8.GetString(msg?.ApplicationMessage?.Payload ?? Array.Empty<byte>());
                 var valores = ObterValoresJson(payloadText);
 
-                if (msg?.ApplicationMessage?.Topic.Contains("Alerta") ?? false)
-                {
-                    var obj = JsonConvert.DeserializeObject<JsonLeituraDto>(payloadText);
-                    var login = _servicoDispositivo.ObterLoginUsuarioPorDispositivoId(Convert.ToDecimal(obj?.Id ?? "0"));
+                var obj = JsonConvert.DeserializeObject<JsonLeituraDto>(valores);
+                var login = _servicoDispositivo.ObterLoginUsuarioPorDispositivoId(1)?.LoginUsuario;
 
-                    if (login != null)
-                        _mqttClient.PublishAsync($"/Alerta/{login}");
+                if (obj?.Chama?.Equals("OK") ?? false)
+                    _servicoAlerta.FazerLigacao(valores);
 
-                    _servicoAlerta.CadastrarAlertaPorJson(valores);
-                }
-                else
-                {
-                    _servicoLeitura.CadastrarLeituraPorJson(valores);
-                }
+                _servicoLeitura.CadastrarLeituraPorJson(valores);
 
                 Console.WriteLine(payloadText);
             });
