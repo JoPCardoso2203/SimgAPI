@@ -1,19 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Oracle.ManagedDataAccess.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
 
 namespace SimgAPI.Infraestrutura.Dados.Contextos
 {
     public static class Conexao
     {
-        public static OracleConnection ObterConexao(IConfiguration configuracao)
+        public static SqlConnection ObterConexao(IConfiguration configuracao)
         {
-            var connectionString = configuracao["StringConexao"];
-            OracleConnection conexao = new OracleConnection(connectionString);
+            var connectionString = configuracao.GetConnectionString("StringConexao"); 
+            SqlConnection conexao = new SqlConnection(connectionString);
             return conexao;
         }
     }
