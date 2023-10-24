@@ -20,7 +20,7 @@ namespace SimgAPI.Infraestrutura.Dados.Contextos
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseOracle(Conexao.ObterConexao(_configuracao));
+            optionsBuilder.UseMySQL(Conexao.ObterConexao(_configuracao));
         }
 
         public DbSet<Alerta> Alerta { get; set; }

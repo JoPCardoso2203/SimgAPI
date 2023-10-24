@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Oracle.ManagedDataAccess.Client;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +10,10 @@ namespace SimgAPI.Infraestrutura.Dados.Contextos
 {
     public static class Conexao
     {
-        public static OracleConnection ObterConexao(IConfiguration configuracao)
+        public static MySqlConnection ObterConexao(IConfiguration configuracao)
         {
             var connectionString = configuracao["StringConexao"];
-            OracleConnection conexao = new OracleConnection(connectionString);
+            MySqlConnection conexao = new MySqlConnection(connectionString);
             return conexao;
         }
     }
