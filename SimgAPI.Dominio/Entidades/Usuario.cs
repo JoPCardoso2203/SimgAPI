@@ -30,7 +30,7 @@ namespace SimgAPI.Dominio.Entidades
         [Column("USUA_TELEFONE")]
         public string? TelefoneUsuario { get; set; }
 
-        [Column("ALER_DTHR_CRIACAO")]
+        [Column("USUA_DTHR_CRIACAO")]
         public DateTime? DataCriacaoUsuario { get; set; }
 
         public ICollection<Dispositivo>? Dispositivos { get; set; }

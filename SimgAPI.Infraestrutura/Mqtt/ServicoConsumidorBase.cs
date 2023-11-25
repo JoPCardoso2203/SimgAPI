@@ -39,7 +39,7 @@ namespace SimgAPI.Infraestrutura.Mqtt
             builder = new MqttClientOptionsBuilder()
                                                     .WithClientId("Dev2")
                                                     .WithTcpServer("au1.cloud.thethings.network", 1883)
-                                                    .WithCredentials("projetos-inovfablab@ttn", "NNSXS.YIYUBGEIM6VG55YLFNOLU66YXOJXXCZDUGUIC4I.2FGNLDKXFDNDNIRBMQUAAZW6LB7IDJUNIDKIQPJKY2I2VXX3WPXQ");
+                                                    .WithCredentials("projetos-inovfablab@ttn", "NNSXS.YGLZYUKKZNVHHFT4QTUXGLXCZDHVKUGBPRQDUPA.NJATG4RHSTV2NMRRPENP5FAI3OAYSC7UNEXVRL6IKWVDMORGMNKQ");
 
             // Create client options objects
             options = new ManagedMqttClientOptionsBuilder()
@@ -79,6 +79,14 @@ namespace SimgAPI.Infraestrutura.Mqtt
                 new MqttTopicFilter
                 {
                     Topic = "v3/projetos-inovfablab@ttn/devices/simi/up"
+                },
+                new MqttTopicFilter
+                {
+                    Topic = "v3/projetos-inovfablab@ttn/devices/simi2/up"
+                },
+                new MqttTopicFilter
+                {
+                    Topic = "v3/projetos-inovfablab@ttn/devices/simi3/up"
                 },
                 new MqttTopicFilter
                 {
