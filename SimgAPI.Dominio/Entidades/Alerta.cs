@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SimgAPI.Dominio.Entidades
 {
-    [Table("ALERTA", Schema = "SIMG")]
+    [Table("ALERTA", Schema = "SIMI")]
     public class Alerta
     {
         [Key]
