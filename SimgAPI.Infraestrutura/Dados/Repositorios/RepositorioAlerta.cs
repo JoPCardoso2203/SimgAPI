@@ -28,7 +28,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 ALER_ID IdAlerta,
                                 ALER_DISP_ID IdDispositivo,
                                 ALER_DTHR_CRIACAO DataAlerta
-                              FROM SIMG.ALERTA WHERE ALER_DISP_ID = :pIdDispositivo";
+                              FROM SIMG.ALERTA WHERE ALER_DISP_ID = @pIdDispositivo";
 
             var lista = ObterLista<Alerta>(consulta, new { pIdDispositivo = idDispositivo });
             return lista;
@@ -40,7 +40,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 ALER_ID IdAlerta,
                                 ALER_DISP_ID IdDispositivo,
                                 ALER_DTHR_CRIACAO DataAlerta 
-                              FROM SIMG.ALERTA WHERE ALER_ID = :pIdAlerta";
+                              FROM SIMG.ALERTA WHERE ALER_ID = @pIdAlerta";
 
             var alerta = Obter<Alerta>(consulta, new { pIdAlerta = id });
             return alerta;

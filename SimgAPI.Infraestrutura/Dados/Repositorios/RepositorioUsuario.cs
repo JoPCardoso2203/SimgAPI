@@ -39,7 +39,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 USUA_SENHA SenhaUsuario,
                                 USUA_TELEFONE TelefoneUsuario,
                                 USUA_DTHR_CRIACAO DataCriacaoUsuario
-                              FROM SIMG.USUARIO WHERE USUA_ID = :pIdUsuario";
+                              FROM SIMG.USUARIO WHERE USUA_ID = @pIdUsuario";
 
             var usuario = Obter<Usuario>(consulta, new { pIdUsuario = id });
             return usuario;
@@ -54,7 +54,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 USUA_SENHA SenhaUsuario,
                                 USUA_TELEFONE TelefoneUsuario,
                                 USUA_DTHR_CRIACAO DataCriacaoUsuario
-                              FROM SIMG.USUARIO WHERE USUA_LOGIN = :pLoginUsuario";
+                              FROM SIMG.USUARIO WHERE USUA_LOGIN = @pLoginUsuario";
 
             var usuario = Obter<Usuario>(consulta, new { pLoginUsuario = login });
             return usuario;
@@ -69,10 +69,15 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 USUA_SENHA SenhaUsuario,
                                 USUA_TELEFONE TelefoneUsuario,
                                 USUA_DTHR_CRIACAO DataCriacaoUsuario
-                              FROM SIMG.USUARIO WHERE USUA_LOGIN = :pLoginUsuario AND USUA_SENHA = :pSenhaUsuario";
+                              FROM SIMG.USUARIO WHERE USUA_LOGIN = @pLoginUsuario AND USUA_SENHA = @pSenhaUsuario";
 
             var usuario = Obter<Usuario>(consulta, new { pLoginUsuario = login, pSenhaUsuario = senha });
             return usuario;
+        }
+
+        public bool RegistrarUsuario(Usuario usuario)
+        {
+            return Adicionar<Usuario>(usuario);
         }
     }
 }

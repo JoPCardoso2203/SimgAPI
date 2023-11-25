@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SimgAPI.Dominio.Auxiliares;
 using SimgAPI.Dominio.Interfaces.Servicos;
 
 namespace SimgAPI.Controllers
@@ -38,6 +39,14 @@ namespace SimgAPI.Controllers
 
             return Ok(obj);
 
+        }
+
+        [HttpPost("RegistrarUsuario")]
+        public IActionResult RegistrarUsuario(UsuarioDTO usuario)
+        {
+            var obj = _servicoUsuario.RegistrarUsuario(usuario);
+
+            return Ok();
         }
     }
 }

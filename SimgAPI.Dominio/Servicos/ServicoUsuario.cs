@@ -1,4 +1,5 @@
-﻿using SimgAPI.Dominio.Entidades;
+﻿using SimgAPI.Dominio.Auxiliares;
+using SimgAPI.Dominio.Entidades;
 using SimgAPI.Dominio.Interfaces.Repositorios;
 using SimgAPI.Dominio.Interfaces.Servicos;
 using System;
@@ -40,6 +41,21 @@ namespace SimgAPI.Dominio.Servicos
 
             if(dispositivos != null && dispositivos.Count > 0)
                 return dispositivos?.Select(p => new { p.IdDispositivo, DataCriacao = p.DataCriacaoDispositivo }).ToList();
+
+            return null;
+        }
+
+        public object? RegistrarUsuario(UsuarioDTO usuario)
+        {
+            var novoUsuario = new Usuario()
+            {
+                LoginUsuario = usuario.Cpf,
+                SenhaUsuario = usuario.Senha,
+                NomeUsuario = usuario.Nome,
+                TelefoneUsuario = usuario.Telefone,
+                DataCriacaoUsuario = DateTime.Now
+            };
+            _repositorioUsuario.RegistrarUsuario(novoUsuario);
 
             return null;
         }

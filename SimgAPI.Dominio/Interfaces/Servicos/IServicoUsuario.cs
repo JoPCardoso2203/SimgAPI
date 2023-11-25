@@ -1,4 +1,5 @@
-﻿using SimgAPI.Dominio.Entidades;
+﻿using SimgAPI.Dominio.Auxiliares;
+using SimgAPI.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace SimgAPI.Dominio.Interfaces.Servicos
     {
         object? ValidarUsuario(string login, string senha);
         object? ListarDispositivos(string Login);
+        object? RegistrarUsuario(UsuarioDTO usuario);
     }
 }

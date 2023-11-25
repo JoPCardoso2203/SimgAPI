@@ -13,5 +13,6 @@ namespace SimgAPI.Dominio.Interfaces.Repositorios
         Usuario? ObterUsuarioPorId(decimal id);
         Usuario? ObterUsuarioPorLoginSenha(string login, string senha);
         Usuario? ObterUsuarioPorLogin(string login);
+        bool RegistrarUsuario(Usuario usuario);
     }
 }
