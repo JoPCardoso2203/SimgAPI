@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace SimgAPI.Infraestrutura.Dados.Contextos
 {
     public static class Conexao
     {
-        public static SqlConnection ObterConexao(IConfiguration configuracao)
+        public static MySqlConnection ObterConexao(IConfiguration configuracao)
         {
-            var connectionString = configuracao.GetConnectionString("StringConexao"); 
-            SqlConnection conexao = new SqlConnection(connectionString);
+            var connectionString = configuracao.GetConnectionString("StringConexao");
+            MySqlConnection conexao = new MySqlConnection(connectionString);
             return conexao;
         }
     }

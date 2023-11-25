@@ -59,5 +59,14 @@ namespace SimgAPI.Dominio.Servicos
 
             return null;
         }
+
+        public object? AtualizarSenha(UsuarioDTO usuario)
+        {
+            var usuarioAntigo = _repositorioUsuario.ObterUsuarioPorLogin(usuario.Cpf);
+            usuarioAntigo.SenhaUsuario = usuario.Senha;
+            _repositorioUsuario.AtualizarSenha(usuarioAntigo);
+
+            return null;
+        }
     }
 }

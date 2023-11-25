@@ -13,5 +13,6 @@ namespace SimgAPI.Dominio.Interfaces.Servicos
         object? ValidarUsuario(string login, string senha);
         object? ListarDispositivos(string Login);
         object? RegistrarUsuario(UsuarioDTO usuario);
+        object? AtualizarSenha(UsuarioDTO usuario);
     }
 }

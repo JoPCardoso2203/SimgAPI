@@ -20,7 +20,8 @@ namespace SimgAPI.Infraestrutura.Dados.Contextos
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL(Conexao.ObterConexao(_configuracao));
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 34));
+            optionsBuilder.UseMySql(Conexao.ObterConexao(_configuracao), serverVersion);
         }
 
         public DbSet<Alerta> Alerta { get; set; }

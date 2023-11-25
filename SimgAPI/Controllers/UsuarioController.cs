@@ -48,5 +48,13 @@ namespace SimgAPI.Controllers
 
             return Ok();
         }
+
+        [HttpPatch("AtualizarSenha")]
+        public IActionResult AtualizarSenha(UsuarioDTO usuario)
+        {
+            var obj = _servicoUsuario.AtualizarSenha(usuario);
+
+            return Ok();
+        }
     }
 }

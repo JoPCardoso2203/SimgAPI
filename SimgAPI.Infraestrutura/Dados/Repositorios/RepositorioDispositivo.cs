@@ -22,7 +22,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 DISP_ID IdDispositivo,
                                 DISP_USUA_ID IdUsuario,
                                 DISP_DTHR_CRIACAO DataCriacaoDispositivo
-                              FROM SIMG.DISPOSITIVO";
+                              FROM DISPOSITIVO";
 
             var lista = ObterLista<Dispositivo>(consulta);
             return lista;
@@ -34,7 +34,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 DISP_ID IdDispositivo,
                                 DISP_USUA_ID IdUsuario,
                                 DISP_DTHR_CRIACAO DataCriacaoDispositivo
-                              FROM SIMG.DISPOSITIVO WHERE DISP_ID = @pIdDispositivo";
+                              FROM DISPOSITIVO WHERE DISP_ID = @pIdDispositivo";
 
             var dispositivo = Obter<Dispositivo>(consulta, new { pIdDispositivo = id });
             return dispositivo;
@@ -46,7 +46,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 DISP_ID IdDispositivo,
                                 DISP_USUA_ID IdUsuario,
                                 DISP_DTHR_CRIACAO DataCriacaoDispositivo
-                              FROM SIMG.DISPOSITIVO WHERE DISP_USUA_ID = @pIdUsuario";
+                              FROM DISPOSITIVO WHERE DISP_USUA_ID = @pIdUsuario";
 
             var dispositivo = ObterLista<Dispositivo>(consulta, new { pIdUsuario = id });
             return dispositivo;

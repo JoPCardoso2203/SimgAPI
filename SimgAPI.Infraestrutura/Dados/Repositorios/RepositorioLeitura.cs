@@ -18,7 +18,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 LEIT_VALOR ValorLeitura,
                                 LEIT_JSON JsonLeitura,
                                 LEIT_DTHR_CRIACAO DataLeitura
-                              FROM SIMG.LEITURA";
+                              FROM LEITURA";
 
             List<Leitura> lista = ObterLista<Leitura>(consulta);
 
@@ -41,7 +41,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 LEIT_VALOR_CHAMA  ValorChama,
                                 LEIT_JSON JsonLeitura,
                                 LEIT_DTHR_CRIACAO DataLeitura
-                              FROM SIMG.LEITURA 
+                              FROM LEITURA 
                               WHERE LEIT_DISP_ID = @pIdDispositivo 
                                 AND LEIT_DTHR_CRIACAO BETWEEN TO_DATE(@pDataDe, 'DD/MM/YYYY HH24:MI:SS') AND TO_DATE(@pDataAte, 'DD/MM/YYYY HH24:MI:SS')";
 
@@ -58,7 +58,7 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
                                 LEIT_VALOR ValorLeitura,
                                 LEIT_JSON JsonLeitura,
                                 LEIT_DTHR_CRIACAO DataLeitura 
-                              FROM SIMG.LEITURA WHERE LEIT_ID = @pIdLeitura";
+                              FROM LEITURA WHERE LEIT_ID = @pIdLeitura";
 
             Leitura? leitura = Obter<Leitura>(consulta, new { pIdLeitura = id });
 
