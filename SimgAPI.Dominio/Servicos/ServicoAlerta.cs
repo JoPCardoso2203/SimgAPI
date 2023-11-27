@@ -31,8 +31,7 @@ namespace SimgAPI.Dominio.Servicos
             var objeto = JsonConvert.DeserializeObject<JsonLeituraDto>(json);
             Alerta alerta = new()
             {
-                IdAlerta = 1,
-                IdDispositivo = Convert.ToDecimal(objeto?.Id ?? "1"),
+                IdDispositivo = Convert.ToDecimal(objeto?.Id),
                 DataAlerta = DateTime.Now
             };
 
@@ -41,9 +40,11 @@ namespace SimgAPI.Dominio.Servicos
 
         public void FazerLigacao(string jsonLeitura)
         {
-            var alerta = _repositorioAlerta.ListarAlertasPorDispositivo("1").OrderByDescending(p => p.DataAlerta).FirstOrDefault();
+            var objeto = JsonConvert.DeserializeObject<JsonLeituraDto>(jsonLeitura);
 
-            if (alerta.DataAlerta != null && DateTime.Now.Subtract(alerta.DataAlerta ?? new DateTime()).TotalMinutes > 2)
+            var alerta = _repositorioAlerta.ListarAlertasPorDispositivo(objeto?.Id).OrderByDescending(p => p.DataAlerta).FirstOrDefault();
+
+            if (alerta == null || (alerta.DataAlerta != null && DateTime.Now.Subtract(alerta.DataAlerta ?? new DateTime()).TotalMinutes > 2))
             {
                 var usuario = _servicoDispositivo.ObterLoginUsuarioPorDispositivoId(1);
                 TotalVoiceClient client = new TotalVoiceClient(_configuracao["TokenTTS"]);

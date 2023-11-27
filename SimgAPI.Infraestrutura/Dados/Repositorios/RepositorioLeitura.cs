@@ -34,16 +34,17 @@ namespace SimgAPI.Infraestrutura.Dados.Repositorios
             }
 
 
-            var consulta = $@"SELECT 
-                                LEIT_ID IdLeitura,
-                                LEIT_DISP_ID IdDispositivo,
-                                LEIT_VALOR_GAS  ValorGas,
-                                LEIT_VALOR_CHAMA  ValorChama,
-                                LEIT_JSON JsonLeitura,
-                                LEIT_DTHR_CRIACAO DataLeitura
-                              FROM LEITURA 
-                              WHERE LEIT_DISP_ID = @pIdDispositivo 
-                                AND LEIT_DTHR_CRIACAO BETWEEN STR_TO_DATE(@pDataDe, 'DD/MM/YYYY HH24:MI:SS') AND STR_TO_DATE(@pDataAte, 'DD/MM/YYYY HH24:MI:SS')";
+            var consulta = $@"SELECT
+                            LEIT_ID IdLeitura,
+                            LEIT_DISP_ID IdDispositivo,
+                            LEIT_VALOR_GAS  ValorGas,
+                            LEIT_VALOR_CHAMA  ValorChama,
+                            LEIT_JSON JsonLeitura,
+                            LEIT_DTHR_CRIACAO DataLeitura
+                            FROM LEITURA 
+                            WHERE LEIT_DISP_ID = 1 
+                            AND LEIT_DTHR_CRIACAO BETWEEN STR_TO_DATE('26/11/2023 18:55:18', '%d/%m/%Y %H:%i:%s') AND STR_TO_DATE('27/11/2023 18:55:18', '%d/%m/%Y %H:%i:%s');
+";
 
             List<Leitura> lista = ObterLista<Leitura>(consulta, new { pIdDispositivo = idDispositivo, pDataDe = dataDe?.ToString("dd/MM/yyyy HH:mm:ss"), pDataAte = dataAte?.ToString("dd/MM/yyyy HH:mm:ss") });
 

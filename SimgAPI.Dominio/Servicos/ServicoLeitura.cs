@@ -31,7 +31,7 @@ namespace SimgAPI.Dominio.Servicos
             { 
                 DataLeitura = DateTime.Now,
                 JsonLeitura = json,
-                IdDispositivo = Convert.ToDecimal(objeto.Id),
+                IdDispositivo = Convert.ToDecimal(objeto?.Id),
                 ValorChama = objeto?.Chama,
                 ValorGas = objeto?.Gas,
             };
