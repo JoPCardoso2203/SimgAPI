@@ -60,7 +60,7 @@ namespace SimgAPI.Infraestrutura.Mqtt
                 var valores = ObterValoresJson(payloadText);
 
                 var obj = JsonConvert.DeserializeObject<JsonLeituraDto>(valores);
-                var login = _servicoDispositivo.ObterLoginUsuarioPorDispositivoId(1)?.LoginUsuario;
+                var login = _servicoDispositivo.ObterLoginUsuarioPorDispositivoId(Convert.ToDecimal(obj.Id))?.LoginUsuario;
 
                 if (obj?.Chama?.Equals("C") ?? false)
                     _servicoAlerta.FazerLigacao(valores);
@@ -120,7 +120,7 @@ namespace SimgAPI.Infraestrutura.Mqtt
         {
             var padrao = "(?:\\\"|\\')(?<key>[\\w\\d]+)(?:\\\"|\\')(?:\\:\\s*)(?:\\\"|\\')?(?<value>[\\w\\s-]*)(?:\\\"|\\')?";
             var valores = Regex.Matches(json, padrao).ToList();
-            var valoresString = valores.Where(x => x.Value.Contains("Gas") || x.Value.Contains("Chama")).Select(x => x.Value).ToList();
+            var valoresString = valores.Where(x => x.Value.Contains("Gas") || x.Value.Contains("Id") || x.Value.Contains("Chama")).Select(x => x.Value).ToList();
             return "{ " + string.Join(',', valoresString.ToArray()) + " }";
         }
     }

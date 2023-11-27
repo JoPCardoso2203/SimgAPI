@@ -29,10 +29,9 @@ namespace SimgAPI.Dominio.Servicos
             var objeto = JsonConvert.DeserializeObject<JsonLeituraDto>(json);
             Leitura leitura = new() 
             { 
-                IdLeitura = 1,
                 DataLeitura = DateTime.Now,
                 JsonLeitura = json,
-                IdDispositivo = 1,
+                IdDispositivo = Convert.ToDecimal(objeto.Id),
                 ValorChama = objeto?.Chama,
                 ValorGas = objeto?.Gas,
             };
