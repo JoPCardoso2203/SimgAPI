@@ -40,9 +40,6 @@ namespace SimgAPI.Infraestrutura.Mqtt
                                                     .WithClientId("Dev2")
                                                     .WithTcpServer("au1.cloud.thethings.network", 1883)
                                                     .WithCredentials("projetos-inovfablab@ttn", "NNSXS.YGLZYUKKZNVHHFT4QTUXGLXCZDHVKUGBPRQDUPA.NJATG4RHSTV2NMRRPENP5FAI3OAYSC7UNEXVRL6IKWVDMORGMNKQ");
-                                                    .WithTcpServer("185.187.235.161", 1883)
-                                                    .WithCredentials("master", "mqtt12345");
-
             // Create client options objects
             options = new ManagedMqttClientOptionsBuilder()
                                     .WithAutoReconnectDelay(TimeSpan.FromSeconds(60))
